@@ -1,0 +1,9 @@
+with cte as(
+  select track_name, artist_s__name, released_year
+from `my-first-project-417716.dfsdfsd.spotify`
+group by track_name, artist_s__name, released_year
+)
+SELECT track_name, count(artist_s__name) as cnt_artist
+FROM cte
+group by track_name
+having cnt_artist > 1
